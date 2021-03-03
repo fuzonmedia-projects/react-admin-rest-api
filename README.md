@@ -76,7 +76,7 @@ Go to this link to visit our live application
 
 
 ## Resources
- #### reactjs
+ ### reactjs
   Go to the link to understand [Reactjs](https://reactjs.org)
  ### react-admin
   Visit [react-admin](https://marmelab.com/react-admin/) official site to know more 
