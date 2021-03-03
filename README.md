@@ -28,6 +28,7 @@ Go to this link to visit our live application
    clone the repo [rest-laravel-jwt](https://www.google.com "Laravel Rest API") and 
    follow the instruction of [READM.MD](https://www.google.com "README file of Laravel Rest API")
    to run the rest-laravela-api on local.
+ 
     
   
 
@@ -46,17 +47,38 @@ Go to this link to visit our live application
    `npm start` 
 
 ## Start with the application
- #### register as a user
+ ### register as a user
  you can type the link <http://localhost:3000/#/register> in your browser
  and to go to register page
- 
+
  ![register page](demo/register.png)
+
+ ### Login with your email and password
+  Type following url <http://localhost:3000/#/login> from you bowser
+ ![Login page](demo/register.png) 
+ ### Visit dashboard of the application
+  Go the url <http://localhost:3000>. You can see the page bellow
+  
+  ![Login page](demo/dashboard.png) 
+
+  From here you can create orders by clicking the create button
+  and search for an order by enter order number. Use paginate
+  to visit all the order you created.
+
+ ### Edit and delete an order
+   Click an order on the dashboard. You will navigate to the Edit page
+   ![Login page](demo/edit-delete.png)
+   Here you can make changes an orders and save.
+   Also delete an order by clicking delete button on right-bottom.
+
+  
+
 
 
 ## Resources
- ##### reactjs
+ #### reactjs
   Go to the link to understand [Reactjs](https://reactjs.org)
- #### react-admin
+ ### react-admin
   Visit [react-admin](https://marmelab.com/react-admin/) official site to know more 
- #### material-ui
+ ### material-ui
   see the documentaion of [material-ui](https://material-ui.com/)
