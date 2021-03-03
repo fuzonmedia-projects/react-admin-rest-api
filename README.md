@@ -11,7 +11,14 @@ and material ui.
  4. search for an orders
  5. paginate orders
 
+
+
 ## Live Application URL
 [Fuzon media react-admin rest api](https://www.google.com "Live Application Link")
 Go to this link to visit our live application
 
+## Run the application in local machine
+
+  ### 1.run command `git clone https://github.com/fuzonmedia-projects/react-admin-rest-api.git`
+  ### 2.then run `npm install`
+  ### 3.run
