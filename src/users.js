@@ -1,5 +1,5 @@
 import React from "react";
-import {SearchInput,Filter, List, Datagrid,ReferenceInput,SelectInput,TextField,SimpleForm,TextInput,Create,Edit} from 'react-admin';
+import {SearchInput,Filter, List, Datagrid,TextField,SimpleForm,TextInput,Create,Edit} from 'react-admin';
 
 const PostFilter=(props)=>(<Filter {...props} >
     <SearchInput  source="q" alwaysOn />

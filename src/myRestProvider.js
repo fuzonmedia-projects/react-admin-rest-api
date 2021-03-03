@@ -42,10 +42,10 @@ export default {
             {
             data: json,
             total: parseInt(headers.get('X-Total-Count').split('/').pop(), 10),
-             });
+            });
          }
         
-        ).catch(()=>Promise.reject(new Error("HElo")));
+        ).catch(()=>Promise.reject(new Error("cant access this page")));
     },
     create:(resource,params)=>{
         const url = `${apiUrl}/${resource}`;

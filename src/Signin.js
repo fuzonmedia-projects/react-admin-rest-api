@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Alert from '@material-ui/lab/Alert';
+import { fetchUtils } from 'react-admin';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -27,18 +28,10 @@ function Copyright() {
   );
 }
 
-
+const apiUrl = "http://localhost:3000";
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
       options.headers = new Headers({ Accept: 'application/json' });
-  }
-  try{
-  const token = JSON.parse(localStorage.getItem('auth'));
-  console.log("tt",token);
-  options.headers.set('Authorization', `Bearer ${token['access_token']}`);
-  }catch(err){
-      console.log(err);
-      
   }
   
   options.credentials = 'include';
@@ -73,7 +66,7 @@ export default function SignIn() {
   const [username, setUsername] = useState(0);
   const [password, setPassword] = useState(0);
   const [cofirm_password, setConfirmPassword] = useState(0);
-  const [warn, setWarn] = useState(0);
+  const [warn, setWarn] = useState([]);
 
   function handleChange(e) {
     e.preventDefault();
@@ -100,51 +93,72 @@ export default function SignIn() {
   }
  function  handleSubmit(e) {
    e.preventDefault();
+   setWarn(["error","processing"]);
    console.log(email,password,username,cofirm_password);
+
    const msg=validate();
    if(msg!=""){
-     setWarn(msg)
-
+     setWarn(["error",msg]);
+     return;
    }
-   const url="http://localhost:3000/api/";
-   httpClient(url,{}).then(({ headers, json }) =>{
-    console.log("pp",json);
-    if(json.status === 403)
-    throw new Error("no access");
-    return (
+  const newuser={
+     email:email,
+     name:username,
+     password:password,
+   };
+   const url=`${apiUrl}/register`;
+   httpClient(url,{
+     method:"POST",
+     body:JSON.stringify(newuser),
+   })
+   .then(({json}) =>{
+    //console.log("pp",json);
+    if(json.status == 403)
     {
-    data: json,
-    total: parseInt(headers.get('X-Total-Count').split('/').pop(), 10),
-     });
+        if(typeof json.errors!=='undefined'){
+              const [firstKey] = Object.keys(json.errors);
+              setWarn(["error",json.errors[firstKey]]);
+         }
+    }else if(json.status == 200){
+      setWarn(["success","Registere Successfully"]);
+      //console.log(json,typeof json.status);
+      // throw new Error("register fail");
+      setTimeout(() => {
+        window.location.href = "/#/login";
+      }, 3000);
+    }
+      
+
     }
 
-    ).catch(()=>{
-    msg="Error submit"
-   });
+    ).catch((e)=>{
+       setWarn(["error","Cant submit"]);
+       console.log(e);
+     });
 
 
 
    
  }
-
+//polarbear
  function validate() {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
-    var msg=""
+    //return "";
+   var msg=""
    if(username.length < 2 ){
        msg="Username should be greater than 3 character";
    }else if(password.length < 8){
        msg="Password should be greater than 3 character";
-   }else if(cofirm_password === password){
+   }else if(cofirm_password !== password){
       msg="Confirm Password not matching";
-   }else if(re.test(String(email).toLowerCase())){
+   }else if(!re.test(String(email).toLowerCase())){
       msg="Enter valid email";
    }
    return msg;
    
  }
- if(warn!=""){
-   alert=<Alert severity="error">{warn}</Alert>;
+ if(warn.length!==0){
+   alert=<Alert severity={warn[0]} >{warn[1]}</Alert>;
  }
   return (
     <Container component="main" maxWidth="xs">
@@ -171,6 +185,7 @@ export default function SignIn() {
             autoFocus
             onChange={handleChange}
           />
+
            <TextField
             variant="outlined"
             margin="normal"
@@ -183,6 +198,7 @@ export default function SignIn() {
             autoComplete="current-password"
             onChange={handleChange}
           />
+
           <TextField
             variant="outlined"
             margin="normal"
