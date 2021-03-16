@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Alert from '@material-ui/lab/Alert';
 import { fetchUtils } from 'react-admin';
+import logo from './logo.png'
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -120,11 +121,12 @@ export default function SignIn() {
               setWarn(["error",json.errors[firstKey]]);
          }
     }else if(json.status == 200){
-      setWarn(["success","Registere Successfully"]);
+      setWarn(["success","Registered Successfully"]);
       //console.log(json,typeof json.status);
       // throw new Error("register fail");
       setTimeout(() => {
-        window.location.href = "/#/login";
+        document.getElementById("register_form").reset();
+        setWarn([]);
       }, 3000);
     }
       
@@ -157,21 +159,21 @@ export default function SignIn() {
    return msg;
    
  }
- if(warn.length!==0){
-   alert=<Alert severity={warn[0]} >{warn[1]}</Alert>;
- }
+
+ 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        
+          
+          <img src={logo}/>
+        
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign up
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleSubmit}>
-          {alert}
+        <form className={classes.form} noValidate onSubmit={handleSubmit} id="register_form">
+          { warn.length!==0 && <Alert severity={warn[0]} >{warn[1]}</Alert>}
         
           <TextField
             variant="outlined"
@@ -235,7 +237,7 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
             <Grid item xs>
@@ -244,8 +246,8 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/#/login" variant="body2">
+                {"Already have accoutn! Login"}
               </Link>
             </Grid>
           </Grid>

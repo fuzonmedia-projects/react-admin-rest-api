@@ -1,23 +1,11 @@
 
-import { fetchUtils } from 'react-admin';
-import { stringify } from 'query-string';
-
-const apiUrl = "http://localhost:3000";
-const httpClient = (url, options = {}) => {
-    if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
-    }
-    //const token = localStorage.getItem('token');
-    //options.headers.set('Authorization', `Bearer ${token}`);
-    options.credentials = 'include';
-    
-    return fetchUtils.fetchJson(url, options);
-  };
-
+const apiUrl = process.env.REACT_APP_API_URL;
 
   const authProvider = {
-    // authentication
+    // this method send post request to /login endpoint 
+    // and expects status 200 for success and 403 for login fails
     login: ({username,password}) => {
+        console.log('url',process.env.REACT_APP_API_URL);
         const request = new Request(`${apiUrl}/login`, {
             method: 'POST',
             body: JSON.stringify({ email:username, password:password }),
@@ -25,43 +13,57 @@ const httpClient = (url, options = {}) => {
         });
         return fetch(request)
             .then(response => {
+               
                 if (response.status < 200 || response.status >= 300) {
-                    throw new Error(response.statusText);
-                }
+                    if(response.status == 403)
+                    throw new Error("Wrong username password");
+                    else
+                    throw new Error("Network error");
+                  
+                 }
                 return response.json();
             })
             .then(auth => {
                 localStorage.setItem('auth', JSON.stringify(auth));
             })
-            .catch(() => {
-                throw new Error('Network error')
+            .catch((e) => {
+                console.log("df",e);
+                throw new Error(e.message);
             });
     },
-    // ...
     
+    //this method run when dataprovider throw an error
+
     checkError: error => {
-       console.log("eA",localStorage.getItem('auth'))
-        const status = error.status;
+        
+        
         if (localStorage.getItem('auth')) {
             localStorage.removeItem('auth');
-            return Promise.reject(new Error("please"));
+            return Promise.reject();
         }
+
         
-        // other error code (404, 500, etc): no need to log out
+        
         return Promise.resolve();
     },
+
+    //check if user is authenticate when use access any routes
     checkAuth: params =>{
-        console.log("cA",localStorage.getItem('auth'))
+    
         if(localStorage.getItem('auth'))
         return Promise.resolve() ;
-        return Promise.reject();
+        return Promise.reject(new Error("Login First"));
      },
+
+    //click on logout button call this method
     logout: () =>{
+        
+
         localStorage.removeItem('auth');
         return Promise.resolve();
     },
     getIdentity: () => Promise.resolve(),
-    // authorization
+   
     getPermissions: params => Promise.reject(),
 };
 
