@@ -24,7 +24,7 @@ Go to this link to visit our live application
   by this command  `node --version`. If you dont have nodejs installed
   on your machine install it on your machine.
   #### rest-laravel-jwt
-   This application make http calls to [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API"). clone the repo [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API") and follow the instruction of [READM.MD](https://github.com/fuzonmedia-projects/rest-laravel-jwt/blob/master/readme.md "README file of  Laravel Rest API")
+   This application make http api calls to our [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API") api. clone the repo [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API") and follow the instruction of [READM.MD](https://github.com/fuzonmedia-projects/rest-laravel-jwt/blob/master/readme.md "README file of  Laravel Rest API")
    to run the rest-laravela-api on local.
  
     
@@ -40,8 +40,8 @@ Go to this link to visit our live application
   1. Clone the repo to run this project on your local machine
    `git clone https://github.com/fuzonmedia-projects/react-admin-rest-api.git`
    
-   after this command create .env file. Rename '.env.example' file to '.env'.
-   set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
+    after this command create .env file. Rename '.env.example' file to '.env'.
+    set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
 
   2. Install all dependancy and packages
    `npm install`
@@ -52,12 +52,12 @@ Go to this link to visit our live application
 ## Start with the application
  ### register as a user
  you can type the link <http://localhost:3000/#/register> in your browser
- and to go to register page
+ and to go to register page then create a user.
 
  ![register page](demo/signup.jpg)
 
  ### Login with your email and password
-  Type following url <http://localhost:3000/#/login> from you bowser
+  Type following url <http://localhost:3000/#/login> from your browser and login with your email and password.
  ![Login page](demo/login.jpg) 
  ### Visit dashboard of the application
   Go the url <http://localhost:3000>. You can see the page bellow
@@ -65,7 +65,7 @@ Go to this link to visit our live application
   ![Login page](demo/dashboard.png) 
 
   From here you can create orders by clicking the create button
-  and search for an order by enter order number. Use paginate
+  and search for an order by enter order number. Use pagination
   to visit all the order you created.
 
  ### Edit and delete an order
@@ -80,7 +80,7 @@ Go to this link to visit our live application
 
 ## Resources
  ### reactjs
-  Go to the link to understand [Reactjs](https://reactjs.org)
+  Go to the link to understand more about [Reactjs](https://reactjs.org)
  ### react-admin
   Visit [react-admin](https://marmelab.com/react-admin/) official site to know more 
  ### material-ui
