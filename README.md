@@ -24,9 +24,7 @@ Go to this link to visit our live application
   by this command  `node --version`. If you dont have nodejs installed
   on your machine install it on your machine.
   #### rest-laravel-jwt
-   This application make http calls to [rest-laravel-jwt](https://www.google.com "Laravel Rest API").
-   clone the repo [rest-laravel-jwt](https://www.google.com "Laravel Rest API") and 
-   follow the instruction of [READM.MD](https://www.google.com "README file of Laravel Rest API")
+   This application make http calls to [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API"). clone the repo [rest-laravel-jwt](https://github.com/fuzonmedia-projects/rest-laravel-jwt/ "Laravel Rest API") and follow the instruction of [READM.MD](https://github.com/fuzonmedia-projects/rest-laravel-jwt/blob/master/readme.md "README file of  Laravel Rest API")
    to run the rest-laravela-api on local.
  
     
@@ -34,16 +32,21 @@ Go to this link to visit our live application
 
 
 ## Run the application in local machine
-  If you done with our prerequisite you are ready to run our application.
+  If you done with our prerequisite then you are ready to run our application.
 
 
-  ### Run following commands
+### Run following commands
 
-  1.Clone this repo to run this project on your local machine
+  1. Clone the repo to run this project on your local machine
    `git clone https://github.com/fuzonmedia-projects/react-admin-rest-api.git`
-  2.Install all dependancy and packages
+   
+   after this command create .env file. Rename '.env.example' file to '.env'.
+   set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
+
+  2. Install all dependancy and packages
    `npm install`
-  3.Start the react app
+
+  3. Start the react app
    `npm start` 
 
 ## Start with the application
@@ -51,11 +54,11 @@ Go to this link to visit our live application
  you can type the link <http://localhost:3000/#/register> in your browser
  and to go to register page
 
- ![register page](demo/register.png)
+ ![register page](demo/signup.jpg)
 
  ### Login with your email and password
   Type following url <http://localhost:3000/#/login> from you bowser
- ![Login page](demo/register.png) 
+ ![Login page](demo/login.jpg) 
  ### Visit dashboard of the application
   Go the url <http://localhost:3000>. You can see the page bellow
   

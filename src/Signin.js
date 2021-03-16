@@ -195,7 +195,7 @@ export default function SignIn() {
             fullWidth
             name="username"
             label="Username"
-            type="password"
+            type="text"
             id="Username"
             autoComplete="current-password"
             onChange={handleChange}
@@ -241,9 +241,7 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+              
             </Grid>
             <Grid item>
               <Link href="/#/login" variant="body2">
