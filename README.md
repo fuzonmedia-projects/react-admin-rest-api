@@ -15,7 +15,7 @@ and material ui.
 
 
 ## Live Application URL
-[Fuzon media react-admin rest api](https://www.google.com "Live Application Link")
+[Fuzon media react-admin rest api](https://fir-sample-9af65.web.app "Live Application Link")
 Go to this link to visit our live application
 
 ## prerequisite
@@ -50,7 +50,7 @@ set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
 3. Start the react app.
 `npm start` 
 
-4. creates a build directory with a production build of your the application.
+4. create a build directory with a production build of the application.
 `npm run build`
 
 ## Start with the application

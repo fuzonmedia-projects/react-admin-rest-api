@@ -29,7 +29,7 @@ function Copyright() {
   );
 }
 
-const apiUrl = "http://localhost:3000";
+const apiUrl = process.env.REACT_APP_API_URL;
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
       options.headers = new Headers({ Accept: 'application/json' });
