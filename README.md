@@ -44,13 +44,16 @@ Go to this link to visit our live application
 after this command create .env file. Rename '.env.example' file to '.env'.
 set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
 
-2. Install all dependancy and packages
+2. Install all dependancy and packages.
+
 `npm install`
 
 3. Start the react app.
+
 `npm start` 
 
 4. create a build directory with a production build of the application.
+
 `npm run build`
 
 ## Start with the application
