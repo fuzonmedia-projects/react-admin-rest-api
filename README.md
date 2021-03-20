@@ -37,17 +37,21 @@ Go to this link to visit our live application
 
 ### Run following commands
 
-  1. Clone the repo to run this project on your local machine
-   `git clone https://github.com/fuzonmedia-projects/react-admin-rest-api.git`
+1. Clone the repo to run this project on your local machine
+
+`git clone https://github.com/fuzonmedia-projects/react-admin-rest-api.git`
    
-    after this command create .env file. Rename '.env.example' file to '.env'.
-    set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
+after this command create .env file. Rename '.env.example' file to '.env'.
+set REACT_APP_API_URL with our 'rest-laravel-jwt' api url in '.env' file.
 
-  2. Install all dependancy and packages
-   `npm install`
+2. Install all dependancy and packages
+`npm install`
 
-  3. Start the react app
-   `npm start` 
+3. Start the react app.
+`npm start` 
+
+4. creates a build directory with a production build of your the application.
+`npm run build`
 
 ## Start with the application
  ### register as a user
